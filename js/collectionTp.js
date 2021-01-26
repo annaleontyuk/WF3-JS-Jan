@@ -1,31 +1,40 @@
-var panier = {
-    banane: 4,
-    fraise: 10,
-    celerie: 2,
-    radis: 3,
-    mango: 15
-};
+/*var panier = [{
+    nomFruit: "banane",
+    quantity: 4,
+    price: 3
+},
+{
+    nomFruit: "fraise",
+    quantity: 3,
+    price: 5
+},
+{
+    nomFruit: "mango",
+    quantity: 2,
+    price: 10
 
-//var prixTotalFruitsLegumes = " ";
+}
 
-var total=0;
- for(var key in panier) {
+];
+*/
 
-    ++total;
- }
+//or
 
- console.log(total);
+let panier = new Map();
 
- //or
+panier.set("banane", {prix:3, quantity: 4});
+panier.set("fraise", {prix:5, quantity: 3});
+panier.set("mango", {prix:10, quantity: 2});
 
- var prixTotal = function(){
-     var total = 0;
-     for(var  i=0; i<panier.length; i++){
-         total= total + panier[i].Amount;
-     }
+let prixTotal = 0;
 
-     return total;
+for(let[key, value] of panier){
+    console.log(key);
+    console.log(value.prix*value.quantity);
+    //let calcul=value.prix*value.quantity;
+    //prixTotal=prixTotal+calcul;
 
- }
+    prixTotal=prixTotal + (value.prix * value.quantity);
+}
 
- console.log(panier.sum("Amount"));
+console.log("prix total du panier: ", prixTotal);
